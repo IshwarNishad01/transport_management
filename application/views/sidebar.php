@@ -175,7 +175,7 @@
             </li>
             <?php } ?>
 
-            <?php  if(userpermission('lr_parts')) { ?>
+            <!-- </?php  if(userpermission('lr_parts')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('partsinventory'))=='active') ? 'menu-open':'' ?>
                <?php echo ((activate_menu('addpartsinventory'))=='active') ? 'menu-open':'' ?> ">
                <a href="#" class="nav-link <?php echo activate_menu('partsinventory');?><?php echo activate_menu('addpartsinventory');?> ">
@@ -200,7 +200,7 @@
                   </li>
                </ul>
             </li>
-            <?php } ?>
+            </?php } ?> -->
 
             <?php  if(userpermission('lr_fuel_list') || userpermission('lr_fuel_add')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('fuel'))=='active') ? 'menu-open':'' ?>
@@ -286,7 +286,8 @@
                   <?php } ?>
                </ul>
             </li>
-            <?php }  if(userpermission('lr_tracking') || userpermission('lr_liveloc')) { ?>
+
+            <!-- <?php }  if(userpermission('lr_tracking') || userpermission('lr_liveloc')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('tracking'))=='active') ? 'menu-open':'' ?>
                <?php echo ((activate_menu('livestatus'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('tracking');?> <?php echo activate_menu('livestatus');?>">
@@ -348,7 +349,8 @@
                   </li>
                   <?php } ?>
                </ul>
-            </li>
+            </li> -->
+
           <?php }  if(userpermission('lr_reports')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('driversreport'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('incomeexpense'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('booking'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('fuels'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('booking');?><?php echo activate_menu('fuels');?><?php echo activate_menu('driversreport');?><?php echo activate_menu('incomeexpense');?>">

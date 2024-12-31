@@ -32,6 +32,11 @@
                           <th>Date</th>
                           <th>Type</th>
                           <th>Driver</th>
+                          <th>Source</th>
+                          <th>Destination</th>
+                          <th>Commodity</th>
+                          <th>Quantity</th>
+                          <th>Rate</th>
                           <th>Trip Status</th>
                            <?php if(userpermission('lr_trips_list_edit') || userpermission('lr_booking_del')) { ?>
                           <th>Action</th>
@@ -52,6 +57,11 @@
 
                            <td><?php echo ucfirst($triplists['t_type']); ?></td>
                            <td><?= (isset($triplists['t_driver_details']->d_name))?$triplists['t_driver_details']->d_name:'<span class="badge badge-danger">Yet to Assign</span>'; ?></td>
+                           <td><?php echo ucfirst($triplists['t_source']); ?></td>
+                           <td><?php echo ucfirst($triplists['t_trip_tolocation']); ?></td>
+                           <td><?php echo ucfirst($triplists['t_commodity']); ?></td>
+                           <td><?php echo ucfirst($triplists['t_quantity']); ?></td>
+                           <td><?php echo ucfirst($triplists['t_trip_amount']); ?></td>
                            <td> <?php 
                               switch($triplists['t_trip_status']){
                                   case 'ongoing':

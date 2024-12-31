@@ -28,7 +28,7 @@
                   <div class="form-group row">
                      <label for="r_from" class="col-sm-5 col-form-label">Report From</label>
                      <div class="col-sm-6 form-group">
-                        <input type="text" required="true" class="form-control form-control-sm datepicker" value="<?php echo isset($_POST['r_from']) ? $_POST['r_from'] : ''; ?>" id="r_from" name="r_from" placeholder="Date From">
+                        <input type="date" required="true" class="form-control form-control-sm" value="<?php echo isset($_POST['r_from']) ? $_POST['r_from'] : ''; ?>" id="r_from" name="r_from" placeholder="Date From">
                      </div>
                   </div>
                </div>
@@ -36,7 +36,7 @@
                   <div class="form-group row">
                      <label for="r_to" class="col-sm-5 col-form-label">Report To</label>
                      <div class="col-sm-6 form-group">
-                        <input type="text" required="true" class="form-control form-control-sm datepicker" value="<?php echo isset($_POST['r_to']) ? $_POST['r_to'] : ''; ?>" id="r_to" name="r_to" placeholder="Date To">
+                        <input type="date" required="true" class="form-control form-control-sm" value="<?php echo isset($_POST['r_to']) ? $_POST['r_to'] : ''; ?>" id="r_to" name="r_to" placeholder="Date To">
                      </div>
                   </div>
                </div>

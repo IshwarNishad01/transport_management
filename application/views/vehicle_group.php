@@ -47,8 +47,8 @@
                         <td> <?php echo output($vehiclegroupdata['gr_created_date']); ?></td>
                         <?php if(userpermission('lr_vech_group_action')) { ?>
                         <td>
-                           <a class="icon" href="<?php echo base_url(); ?>tracking/livestatus/<?php echo output($vehiclegroupdata['gr_id']); ?>">
-                           <i class="fa fa-map"></i> |  
+                           <!-- <a class="icon" href="<?php echo base_url(); ?>tracking/livestatus/<?php echo output($vehiclegroupdata['gr_id']); ?>">
+                           <i class="fa fa-map"></i> |   -->
                            <a class="icon" href="<?php echo base_url(); ?>vehicle/vehiclegroup_delete/<?php echo output($vehiclegroupdata['gr_id']); ?>">
                            <i class="fa fa-trash text-danger"></i>
                            </a> 

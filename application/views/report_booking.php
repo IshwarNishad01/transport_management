@@ -28,7 +28,7 @@
                   <div class="form-group row">
                      <label for="booking_from" class="col-sm-5 col-form-label">Report From</label>
                      <div class="col-sm-6 form-group">
-                        <input type="text" required="true" class="form-control form-control-sm datepicker" value="<?php echo isset($_POST['booking_from']) ? $_POST['booking_from'] : ''; ?>" id="booking_from" name="booking_from" placeholder="Date From">
+                        <input type="date" required="true" class="form-control form-control-sm" value="<?php echo isset($_POST['booking_from']) ? $_POST['booking_from'] : ''; ?>" id="booking_from" name="booking_from" placeholder="Date From">
                      </div>
                   </div>
                </div>
@@ -36,7 +36,7 @@
                   <div class="form-group row">
                      <label for="booking_to" class="col-sm-5 col-form-label">Report To</label>
                      <div class="col-sm-6 form-group">
-                        <input type="text" required="true" class="form-control form-control-sm datepicker" value="<?php echo isset($_POST['booking_to']) ? $_POST['booking_to'] : ''; ?>" id="booking_to" name="booking_to" placeholder="Date To">
+                        <input type="date" required="true" class="form-control form-control-sm" value="<?php echo isset($_POST['booking_to']) ? $_POST['booking_to'] : ''; ?>" id="booking_to" name="booking_to" placeholder="Date To">
                      </div>
                   </div>
                </div>

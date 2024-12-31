@@ -86,8 +86,7 @@ class Traccarsync extends REST_Controller {
                     }
                 }
             }
-        }
-        
+        }        
     }
 
 }

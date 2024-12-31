@@ -59,9 +59,9 @@
                   
                     <button type="submit" class="btn btn-primary">Save Config</button>
                   </div>
-                  <b>CRON URL : </b><?= base_url().'traccarsync' ?> <br>
+                  <!-- <b>CRON URL : </b><?= base_url().'traccarsync' ?> <br>
                   <b>CRON COMMAND:</b> wget -q -O- <?= base_url().'traccarsync' ?><br>
-                  <a target="_blank" href="<?= base_url().'traccarsync' ?>">Run Cron Manually</a>
+                  <a target="_blank" href="<?= base_url().'traccarsync' ?>">Run Cron Manually</a> -->
                 </div>
               </form>
             </div>

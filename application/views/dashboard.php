@@ -205,7 +205,7 @@
                </table>
             </div>
          </div>
-         <?php } if(userpermission('lr_geofence_list')) { ?>
+         <!-- <?php } if(userpermission('lr_geofence_list')) { ?>
          <div class="col-md-6">
             <div class="col-sm-12 col-lg-12 ">
                <div class="card">
@@ -235,7 +235,7 @@
                </div>
             </div>
          </div>
-         <?php } ?>
+         <?php } ?> -->
       </div>
       <!-- /.card -->
       <!-- /.col -->

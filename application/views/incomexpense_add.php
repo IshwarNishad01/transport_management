@@ -50,7 +50,7 @@
                     <div class="col-sm-6 col-md-3">
                       <div class="form-group">
                           <label class="form-label">Date<span class="form-required">*</span></label>
-                         <input type="text" class="form-control datepicker" id="ie_date" name="ie_date" value="<?php echo (isset($incomexpensedetails)) ? date(dateformat(), strtotime($incomexpensedetails[0]['ie_date'])):'' ?>" placeholder="Income/Expense">
+                         <input type="date" class="form-control" id="ie_date" name="ie_date" value="<?php echo (isset($incomexpensedetails)) ? date(dateformat(), strtotime($incomexpensedetails[0]['ie_date'])):'' ?>" placeholder="Income/Expense">
 
                       </div>
                     </div>
