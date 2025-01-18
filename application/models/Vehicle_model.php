@@ -3,61 +3,50 @@
 class vehicle_model extends CI_Model
 {
 
-	// public function add_vehicle($data) { 
-	// 	if(!empty($_FILES)) {
-	// 		$config['upload_path'] = 'assets/uploads/';
-	// 		$config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|docx'; 
-	// 		$this->load->library('upload', $config); 
-	// 		if(!empty($_FILES['file']['name'][0])){ 
-	// 			$uploadData = '';
-	// 			$this->upload->initialize($config); 
-	// 			$_FILES['file']['name']     = $_FILES['file']['name']; 
-	// 			$_FILES['file']['type']     = $_FILES['file']['type']; 
-	// 			$_FILES['file']['tmp_name'] = $_FILES['file']['tmp_name']; 
-	// 			$_FILES['file']['error']     = $_FILES['file1']['error']; 
-	// 			$_FILES['file']['size']     = $_FILES['file']['size']; 
-	// 			if($this->upload->do_upload('file')){ 
-	// 				$uploadData = $this->upload->data();
-	// 				$data['v_file'] = $uploadData['file_name'];
-	// 			}
-	// 		} 
-	// 		if(!empty($_FILES['file1']['name'][1])){ 
-	// 			$uploadData = '';
-	// 			$this->upload->initialize($config); 
-	// 			$_FILES['file']['name']     = $_FILES['file1']['name']; 
-	// 			$_FILES['file']['type']     = $_FILES['file1']['type']; 
-	// 			$_FILES['file']['tmp_name'] = $_FILES['file1']['tmp_name']; 
-	// 			$_FILES['file']['error']     = $_FILES['file1']['error']; 
-	// 			$_FILES['file']['size']     = $_FILES['file1']['size']; 
-	// 			if($this->upload->do_upload('file1')){ 
-	// 				$uploadData = $this->upload->data();
-	// 				$data['v_file1'] = $uploadData['file_name'];
-	// 			}
-	// 		} 
-	// 	}
-	// 	$data['v_reg_exp_date'] = reformatDate($data['v_reg_exp_date']); 
-	// 	return $this->db->insert('vehicles',$data);
+	public function add_vehicle($data) { 
+		if(!empty($_FILES)) {
+			$config['upload_path'] = 'assets/uploads/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|docx'; 
+			$this->load->library('upload', $config); 
+			if(!empty($_FILES['file']['name'][0])){ 
+				$uploadData = '';
+				$this->upload->initialize($config); 
+				$_FILES['file']['name']     = $_FILES['file']['name']; 
+				$_FILES['file']['type']     = $_FILES['file']['type']; 
+				$_FILES['file']['tmp_name'] = $_FILES['file']['tmp_name']; 
+				$_FILES['file']['error']     = $_FILES['file1']['error']; 
+				$_FILES['file']['size']     = $_FILES['file']['size']; 
+				if($this->upload->do_upload('file')){ 
+					$uploadData = $this->upload->data();
+					$data['v_file'] = $uploadData['file_name'];
+				}
+			} 
+			if(!empty($_FILES['file1']['name'][1])){ 
+				$uploadData = '';
+				$this->upload->initialize($config); 
+				$_FILES['file']['name']     = $_FILES['file1']['name']; 
+				$_FILES['file']['type']     = $_FILES['file1']['type']; 
+				$_FILES['file']['tmp_name'] = $_FILES['file1']['tmp_name']; 
+				$_FILES['file']['error']     = $_FILES['file1']['error']; 
+				$_FILES['file']['size']     = $_FILES['file1']['size']; 
+				if($this->upload->do_upload('file1')){ 
+					$uploadData = $this->upload->data();
+					$data['v_file1'] = $uploadData['file_name'];
+				}
+			} 
+		}
+		$data['v_reg_exp_date'] = reformatDate($data['v_reg_exp_date']); 
+		return $this->db->insert('vehicles',$data);
 
-	// } 
-	// public function getall_vehicle() {
-	//   $this->db->select("*");
-	//   $this->db->from('vehicles');
-	//   $this->db->join('vehicle_group', 'vehicle_group.gr_id=vehicles.v_group','LEFT');
-	//   $this->db->order_by('v_id','desc');
-	//   $query = $this->db->get();
-	//   return $query->result_array();
-	// } 
-
-	public function add_vehicle($data)
-	{
-		// Insert data into vehicles table
-		return $this->db->insert('vehicles', $data);
-	}
-
+	} 
 	public function getall_vehicle()
 	{
-		// Retrieve all vehicle records
-		return $this->db->get('vehicles')->result_array();
+		$this->db->select("*");
+		$this->db->from('vehicles');
+		$this->db->join('vehicle_group', 'vehicle_group.gr_id=vehicles.v_group', 'LEFT');
+		$this->db->order_by('v_id', 'desc');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 
 	public function get_vehicledetails($v_id)

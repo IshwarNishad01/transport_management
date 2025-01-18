@@ -1,8 +1,8 @@
 <footer class="main-footer">
-   <strong>Devloped By <a href="http://codeforts.com" target="_blank">Codeforts</a>.</strong>
+   <!-- <strong>Devloped By <a href="http://codeforts.com" target="_blank">Codeforts</a>.</strong>
    <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 6.0
-   </div>
+   </div> -->
 </footer>
 </div>
 </div>

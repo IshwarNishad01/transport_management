@@ -403,7 +403,7 @@
                         <p>General Settings</p>
                      </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a href="<?= base_url(); ?>settings/smtpconfig" class="nav-link <?php echo activate_menu('smtpconfig');?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>SMTP Configuration</p>
@@ -420,7 +420,7 @@
                         <i class="nav-icon fas faa-plus"></i>
                         <p>Traccar Config</p>
                      </a>
-                  </li>
+                  </li> -->
                </ul>
             </li>
             <li class="nav-item has-treeview <?php echo ((activate_menu('users'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('adduser'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('edituser'))=='active') ? 'menu-open':'' ?>">

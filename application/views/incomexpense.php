@@ -46,8 +46,9 @@
                         <tr>
                            <td> <?php echo output($count); $count++; ?></td>
                            <td> <?php echo output($incomexpenses['vech_name']->v_name).'_'.output($incomexpenses['vech_name']->v_registration_no); ?></td>
-                           <td> <?php echo output(date(dateformat(), strtotime($incomexpenses['ie_date']))); ?></td>
+                           <!-- <td> </?php echo output(date(dateformat(), strtotime($incomexpenses['ie_date']))); ?></td> -->
 
+                           <td><?php echo output($incomexpenses['ie_date']); ?></td>
                            <td><?php echo output($incomexpenses['ie_description']); ?></td>
                            <td><?php echo output($incomexpenses['ie_amount']); ?></td>
                            <td><span class="badge <?php echo ($incomexpenses['ie_type']=='income') ? 'badge-success' : 'badge-danger'; ?>"><?php echo ($incomexpenses['ie_type']=='income') ? 'Income' : 'Expense'; ?></span>  

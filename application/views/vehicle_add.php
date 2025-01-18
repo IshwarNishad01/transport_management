@@ -21,8 +21,23 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <form method="post" id="vehicle_add" class="card" action="<?php echo base_url('vehicle/insertvehicle'); ?>" enctype="multipart/form-data">
+        <form method="post" id="vehicle_add" class="card" action="<?php echo base_url('Vehicle/insertvehicle'); ?>" enctype="multipart/form-data">
           <div class="card-body">
+
+            <!-- </?php if ($this->session->flashdata('message')): ?>
+              <div class="alert alert-success">
+                </?php echo $this->session->flashdata('message'); ?>
+              </div>
+            </?php endif; ?> -->
+
+            <?php if ($this->session->flashdata('message')): ?>
+              <div class="alert alert-success">
+                <?= $this->session->flashdata('message'); ?>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              </div>
+              <?php $this->session->unset_userdata('message'); // Unset the flashdata 
+              ?>
+            <?php endif; ?>
 
 
             <div class="row">
@@ -46,35 +61,35 @@
               <div class="col-sm-6 col-md-3">
                 <label class="form-label">Insurance Expiry Date</label>
                 <div class="form-group">
-                  <input type="date" name="v_insurance_date" id="v_insurance_date" class="form-control" placeholder="Insurance Expiry Date">
+                  <input type="date" name="v_insurance_date" id="v_insurance_date" class="form-control" placeholder="Insurance Expiry Date" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['v_insurance_date'] : '' ?>">
                 </div>
               </div>
 
               <div class="col-sm-6 col-md-3">
                 <label class="form-label">Fitness Renewal Date</label>
                 <div class="form-group">
-                  <input type="date" name="v_fitness_date" id="v_fitness_date" class="form-control" placeholder="Fitness Renewal Date">
+                  <input type="date" name="v_fitness_date" id="v_fitness_date" class="form-control" placeholder="Fitness Renewal Date" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['v_fitness_date'] : '' ?>">
                 </div>
               </div>
 
               <div class="col-sm-6 col-md-3">
                 <label class="form-label">Installments Due Date</label>
                 <div class="form-group">
-                  <input type="date" name="v_installments_due_date" id="v_installments_due_date " class="form-control" placeholder="Installments Due Date">
+                  <input type="date" name="v_installments_due_date" id="v_installments_due_date " class="form-control" placeholder="Installments Due Date" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['v_installments_due_date'] : '' ?>">
                 </div>
               </div>
 
               <div class="col-sm-6 col-md-3">
                 <label class="form-label">Total Installments Pending</label>
                 <div class="form-group">
-                  <input type="text" name="v_installments_pending_date" id="v_installments_pending_date" class="form-control" placeholder="Total Installments Pending">
+                  <input type="text" name="v_installments_pending_date" id="v_installments_pending_date" class="form-control" placeholder="Total Installments Pending" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['v_installments_pending_date'] : '' ?>">
                 </div>
               </div>
 
               <div class="col-sm-6 col-md-3">
                 <label class="form-label">Installment Amount</label>
                 <div class="form-group">
-                  <input type="text" name="v_installments_amount" id="v_installments_amount" class="form-control" placeholder="Installment Amount">
+                  <input type="text" name="v_installments_amount" id="v_installments_amount" class="form-control" placeholder="Installment Amount" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['v_installments_amount'] : '' ?>">
                 </div>
               </div>
 
@@ -135,8 +150,8 @@
                   <input id="add-device-color" name="v_color" class="jscolor {valueElement:'add-device-color', styleElement:'add-device-color', hash:true, mode:'HSV'} form-control" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['v_color'] : '#D6E1F3' ?>">
                 </div>
               </div>
-              
-              <?php if (isset($vehicledetails[0]['v_is_active'])) { ?>
+
+              <!-- </?php if (isset($vehicledetails[0]['v_is_active'])) { ?> -->
                 <div class="col-sm-6 col-md-3">
                   <div class="form-group">
                     <label for="v_is_active" class="form-label">Vehicle Status</label>
@@ -147,7 +162,7 @@
                     </select>
                   </div>
                 </div>
-              <?php } ?>
+              <!-- </?php } ?> -->
 
               <!-- <div class="col-sm-6 col-md-3">
                       <div class="form-group">
@@ -159,16 +174,15 @@
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Registration Expiry Date</label>
-                  <input type="date" name="v_reg_exp_date"
-                    value=""
-                    class="form-control"
-                    placeholder="Registration Expiry Date">
+                  <input type="date" name="v_reg_exp_date" class="form-control" placeholder="Registration Expiry Date" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['v_reg_exp_date'] : '' ?>">
                 </div>
               </div>
 
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label for="v_group" class="form-label">Vehicle Group</label>
+                  <!-- <input type="text" id="v_group" name="v_group" value="" class="form-control" placeholder="Enter Vehicle Group"> -->
+
                   <select id="v_group" name="v_group" class="form-control">
                     <option value="">Select Vehicle Group</option>
                     <?php if (!empty($v_group)) {
@@ -183,17 +197,17 @@
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Vehicle Image</label>
-                  <input type="file" id="file" name="file" class="form-control" />
+                  <input type="file" id="file" name="file" class="form-control" value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['file'] : '' ?>" />
                 </div>
               </div>
 
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Vehicle Document</label>
-                  <input type="file" id="file1" name="file1" class="form-control" />
+                  <input type="file" id="file1" name="file1" class="form-control"value="<?php echo (isset($vehicledetails)) ? $vehicledetails[0]['file1'] : '' ?>" />
                 </div>
               </div>
-              <?php $settings = sitedata();
+              <!-- </?php $settings = sitedata();
               if (isset($settings['s_traccar_enabled']) && $settings['s_traccar_enabled'] == 1) { ?>
 
                 <div class="col-sm-6 col-md-3">
@@ -201,10 +215,10 @@
                     <label class="form-label">Traccar Device ID <span title="3 New Messages" class="badge ">(Data sycn based on this value)</span></label>
                     <select id="v_traccar_id" name="v_traccar_id" class="form-control">
                       <option value="">Select Traccar Device ID</option>
-                      <?php if (!empty($traccar_list)) {
+                      </?php if (!empty($traccar_list)) {
                         foreach ($traccar_list as $traccar) { ?>
-                          <option <?= (isset($vehicledetails[0]['v_traccar_id']) && $vehicledetails[0]['v_traccar_id'] == $traccar['id']) ? 'selected' : '' ?> value="<?= $traccar['id'] ?>"><?= $traccar['name'] ?></option>
-                      <?php }
+                          <option </?= (isset($vehicledetails[0]['v_traccar_id']) && $vehicledetails[0]['v_traccar_id'] == $traccar['id']) ? 'selected' : '' ?> value="<?= $traccar['id'] ?>"><?= $traccar['name'] ?></option>
+                      </?php }
                       } ?>
                     </select>
                   </div>
@@ -214,7 +228,7 @@
 
 
 
-              <?php } ?>
+              </?php } ?> -->
 
             </div>
 
@@ -263,6 +277,31 @@
           changeMonth: true,
           changeYear: true,
           yearRange: "1900:2100" // Adjust range as needed
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $('#vehicle_add').on('submit', function(e) {
+          // Prevent form submission if validation fails
+          let isValid = true;
+          const regNo = $('#v_registration_no').val();
+          const name = $('#v_name').val();
+
+          if (!regNo) {
+            alert('Registration Number is required.');
+            isValid = false;
+          }
+
+          if (!name) {
+            alert('Vehicle Name is required.');
+            isValid = false;
+          }
+
+          if (!isValid) {
+            e.preventDefault(); // Stop form submission
+          }
         });
       });
     </script>

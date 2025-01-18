@@ -1,4 +1,4 @@
-    <div class="content-header">
+<div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -25,18 +25,19 @@
                 <input type="hidden" name="v_fuel_id" id="v_fuel_id" value="<?php echo (isset($fueldetails)) ? $fueldetails[0]['v_fuel_id'] : '' ?>">
               <?php  } ?>
               <div class="col-sm-6 col-md-3">
-                <label class="form-label">Vechicle<span class="form-required">*</span></label>
                 <div class="form-group">
-                  <select id="v_id" class="form-control selectized" name="v_id">
+                  <label class="form-label">Vechicle<span class="form-required">*</span></label>
+                  <select id="r_v_id" class="form-control" name="r_v_id">
                     <option value="">Select Vechicle</option>
-                    <!-- </?php  foreach ($vechiclelist as $key => $vechiclelists) { ?>
-                        <option <?php if ((isset($fueldetails)) && $fueldetails[0]['v_id'] == $vechiclelists['v_id']) {
-                                  echo 'selected';
-                                } ?> value="<?php echo output($vechiclelists['v_id']) ?>"><?php echo output($vechiclelists['v_name']) . ' - ' . output($vechiclelists['v_registration_no']); ?></option>
-                        </?php  } ?> -->
+                    <?php foreach ($vechiclelist as $key => $vechiclelists) { ?>
+                      <option <?php if ((isset($reminderdetails)) && $reminderdetails[0]['v_id'] == $vechiclelists['v_name']) {
+                                echo 'selected';
+                              } ?> value="<?php echo output($vechiclelists['v_name']) ?>"><?php echo output($vechiclelists['v_name']) . ' - ' . output($vechiclelists['v_registration_no']); ?></option>
+                    <?php  } ?>
                   </select>
                 </div>
               </div>
+
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Added Driver<span class="form-required">*</span></label>
@@ -50,10 +51,11 @@
                   </select>
                 </div>
               </div>
+
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Fill Date<span class="form-required">*</span></label>
-                  <input type="date" required="true" class="form-control" id="v_fuelfilldate" name="v_fuelfilldate" value="<?php echo (isset($fueldetails)) ? date(dateformat(), strtotime($fueldetails[0]['v_fuelfilldate'])) : '' ?>" placeholder="Fuel Fill Date">
+                  <input type="date" required="true" class="form-control" id="v_fuelfilldate" name="v_fuelfilldate" value="<?php echo (isset($fueldetails)) ? $fueldetails[0]['v_fuelfilldate'] : '' ?>" placeholder="Fuel Fill Date">
 
                 </div>
               </div>
@@ -105,3 +107,16 @@
       </div>
     </section>
     <!-- /.content -->
+
+    <script>
+      document.getElementById('fuel').addEventListener('submit', function(e) {
+        const vehicle = document.getElementById('r_v_id').value;
+        const driver = document.getElementById('v_fueladdedby').value;
+        const quantity = document.getElementById('v_fuel_quantity').value;
+
+        if (!vehicle || !driver || !quantity) {
+          alert('Please fill in all required fields.');
+          e.preventDefault(); // Prevent form submission
+        }
+      });
+    </script>

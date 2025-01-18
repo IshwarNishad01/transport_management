@@ -147,10 +147,10 @@
                   <b class="d-block"><?= $driverdetails['d_licenseno']; ?></b>
                   <?php  } else { echo '<b class="d-block"><span class="badge badge-danger">Yet to Assign</span></b>'; } ?>
                 </p>
-                 <p class="text-sm">Tracking URL
-                  <b class="d-block"><a target="_new" href="<?= base_url().'triptracking/'.$tripdetails['t_trackingcode']; ?>"><?= base_url().'triptracking/'.$tripdetails['t_trackingcode']; ?></a></b>
+                 <!-- <p class="text-sm">Tracking URL
+                  <b class="d-block"><a target="_new" href="</?= base_url().'triptracking/'.$tripdetails['t_trackingcode']; ?>"><?= base_url().'triptracking/'.$tripdetails['t_trackingcode']; ?></a></b>
                 </p>
-                <p><div class="col-6"><a href="<?= base_url() ?>trips/sendtracking?email=<?= urlencode($customerdetails['c_email']); ?>&trackingcode=<?= $tripdetails['t_trackingcode'] ?>&t_id=<?= $tripdetails['t_id'] ?>" class="btn btn-sm btn-success">Share to Customer</a></div></p>
+                <p><div class="col-6"><a href="</?= base_url() ?>trips/sendtracking?email=<?= urlencode($customerdetails['c_email']); ?>&trackingcode=<?= $tripdetails['t_trackingcode'] ?>&t_id=<?= $tripdetails['t_id'] ?>" class="btn btn-sm btn-success">Share to Customer</a></div></p> -->
               </div>
             </div>
           </div>

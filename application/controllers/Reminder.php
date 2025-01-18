@@ -28,6 +28,7 @@ class Reminder extends CI_Controller {
 	{
 		$testxss = xssclean($_POST);
 		if($testxss){
+			
 			$response = $this->reminder_model->add_reminder($this->input->post());
 			if($response) {
 				$this->session->set_flashdata('successmessage', 'New reminder added successfully..');
