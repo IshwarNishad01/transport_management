@@ -1,0 +1,25 @@
+transport management project 
+-------------------------------
+
+vehicle module -->
+vehicle list - view more option check and comment unusal things
+vehicle group is not showing while adding vehicle in dropdown
+edit is not working properly
+
+driver module -->
+edit driver is not working
+all fields are not submitting while adding new driver info
+image documents is now showing
+
+fuel management -->
+edit fuel is not working
+
+remainder management -->
+date is wrong format
+
+booking -->
+booking edit is not working
+comment email part 
+
+settings module -->
+comments unnessary links

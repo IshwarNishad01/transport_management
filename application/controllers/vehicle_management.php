@@ -46,11 +46,6 @@
                         <td><?php echo output($vehiclelists['v_name']); ?></td>
                         <td><?php echo output($vehiclelists['v_registration_no']); ?></td>
                         <td><?php echo output($vehiclelists['v_model']); ?></td>
-                        <td><?php echo output($vehiclelists['v_insurance_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_fitness_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_installments_due_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_installments_pending_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_installments_amount']); ?></td>
                         <td><?php echo output($vehiclelists['v_chassis_no']); ?></td>
                         <td><?php echo output($vehiclelists['gr_name']); ?></td>
                         <td><span class="badge <?php echo ($vehiclelists['v_is_active']=='1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($vehiclelists['v_is_active']=='1') ? 'Active' : 'Inactive'; ?></span>  

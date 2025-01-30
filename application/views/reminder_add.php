@@ -43,7 +43,7 @@
 
                   <div class="form-group">
                     <label>Date<span class="form-required">*</span></label>
-                    <input type="text" class="form-control datepicker" required="true" value="" id="r_date" name="r_date" placeholder="Choose reminder date" autocomplete="off">
+                    <input type="date" class="form-control" required="true" value="" id="r_date" name="r_date" placeholder="Choose reminder date" autocomplete="off">
                   </div>
 
 

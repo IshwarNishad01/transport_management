@@ -25,6 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = "http://localhost/vms_v6/";
 
+// $config['base_url'] = "http://localhost/transport_management/";
+
 /*
 |--------------------------------------------------------------------------
 | Index File

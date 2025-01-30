@@ -23,34 +23,62 @@ class Drivers extends CI_Controller {
 	{
 		$this->template->template_render('drivers_add');
 	}
+	// public function insertdriver()
+	// {
+	// 	$this->form_validation->set_rules('d_licenseno','License Number','required|trim|is_unique[vehicles.v_registration_no]');
+	// 	$this->form_validation->set_message('is_unique', '%s is already exist');
+	// 	$this->form_validation->set_rules('d_name','Name','required|trim');
+	// 	$this->form_validation->set_rules('d_mobile','Mobile','required|trim');
+	// 	$this->form_validation->set_rules('d_adhar_number','Adhar Number','required|trim');
+    //     $this->form_validation->set_rules('d_address', 'Address', 'required|trim');
+	// 	$this->form_validation->set_rules('d_contact','Alternate Contact','required|trim');
+	// 	$this->form_validation->set_rules('d_age','Age','required|trim');
+	// 	$this->form_validation->set_rules('d_licenseno','License Number','required|trim');
+	// 	$this->form_validation->set_rules('d_license_expdate','License Exp Date','required|trim');
+	// 	$this->form_validation->set_rules('d_total_exp','Total Experiance','required|trim');
+	// 	$this->form_validation->set_rules('d_doj','Date of Joining','required|trim');
+	// 	$testxss = true;
+	// 	if($this->form_validation->run()==TRUE && $testxss){
+	// 		$response = $this->drivers_model->add_drivers($this->input->post());
+	// 		if($response) {
+	// 			$this->session->set_flashdata('successmessage', 'New driver added successfully..');
+	// 		    redirect('drivers');
+	// 		}
+	// 	} else {
+	// 		$errormsg = preg_replace( "/\r|\n/", "", trim(str_replace('.',',',strip_tags(validation_errors()))));
+	// 		if(!$testxss) {
+	// 			$errormsg = 'Error! Your input are not allowed.Please try again';
+	// 		}
+	// 		$this->session->set_flashdata('warningmessage',$errormsg);
+	// 		redirect('drivers/adddrivers');
+	// 	}
+	// }
+
 	public function insertdriver()
-	{
-		$this->form_validation->set_rules('d_licenseno','License Number','required|trim|is_unique[vehicles.v_registration_no]');
-		$this->form_validation->set_message('is_unique', '%s is already exist');
-		$this->form_validation->set_rules('d_name','Name','required|trim');
-		$this->form_validation->set_rules('d_mobile','Mobile','required|trim');
-        $this->form_validation->set_rules('d_address', 'Address', 'required|trim');
-		$this->form_validation->set_rules('d_age','Age','required|trim');
-		$this->form_validation->set_rules('d_licenseno','License Number','required|trim');
-		$this->form_validation->set_rules('d_license_expdate','License Exp Date','required|trim');
-		$this->form_validation->set_rules('d_total_exp','Total Experiance','required|trim');
-		$this->form_validation->set_rules('d_doj','Date of Joining','required|trim');
-		$testxss = true;
-		if($this->form_validation->run()==TRUE && $testxss){
-			$response = $this->drivers_model->add_drivers($this->input->post());
-			if($response) {
-				$this->session->set_flashdata('successmessage', 'New driver added successfully..');
-			    redirect('drivers');
-			}
-		} else {
-			$errormsg = preg_replace( "/\r|\n/", "", trim(str_replace('.',',',strip_tags(validation_errors()))));
-			if(!$testxss) {
-				$errormsg = 'Error! Your input are not allowed.Please try again';
-			}
-			$this->session->set_flashdata('warningmessage',$errormsg);
-			redirect('drivers/adddrivers');
-		}
-	}
+{
+    // Form validation rules
+    $this->form_validation->set_rules('d_name', 'Name', 'required|trim');
+    $this->form_validation->set_rules('d_mobile', 'Mobile', 'required|trim');
+    $this->form_validation->set_rules('d_licenseno', 'License Number', 'required|trim');
+
+    if ($this->form_validation->run() === TRUE) {
+        // Save form data to database
+        $response = $this->drivers_model->add_drivers($this->input->post());
+
+        if ($response) {
+            $this->session->set_flashdata('successmessage', 'New driver added successfully.');
+            redirect('drivers');
+        } else {
+            $this->session->set_flashdata('warningmessage', 'Something went wrong. Please try again.');
+            redirect('drivers/adddrivers');
+        }
+    } else {
+        // Return validation errors
+        $this->session->set_flashdata('warningmessage', validation_errors());
+        redirect('drivers/adddrivers');
+    }
+}
+
 	public function editdriver()
 	{
 		$d_id = $this->uri->segment(3);
@@ -76,6 +104,8 @@ class Drivers extends CI_Controller {
 			redirect('drivers');
 		}
 	}
+
+	
 	public function deletedriver()
 	{
 		$d_id = $this->input->post('del_id');

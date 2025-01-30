@@ -28,7 +28,7 @@
                   <div class="form-group row">
                      <label for="incomeexpense_from" class="col-sm-5 col-form-label">Report From</label>
                      <div class="col-sm-6 form-group">
-                        <input type="text" required="true" class="form-control form-control-sm datepicker" value="<?php echo isset($_POST['incomeexpense_from']) ? $_POST['incomeexpense_from'] : ''; ?>" id="incomeexpense_from" name="incomeexpense_from" placeholder="Date From">
+                        <input type="date" required="true" class="form-control form-control-sm" value="<?php echo isset($_POST['incomeexpense_from']) ? $_POST['incomeexpense_from'] : ''; ?>" id="incomeexpense_from" name="incomeexpense_from" placeholder="Date From">
                      </div>
                   </div>
                </div>
@@ -36,7 +36,7 @@
                   <div class="form-group row">
                      <label for="incomeexpense_to" class="col-sm-5 col-form-label">Report To</label>
                      <div class="col-sm-6 form-group">
-                        <input type="text" required="true" class="form-control form-control-sm datepicker" value="<?php echo isset($_POST['incomeexpense_to']) ? $_POST['incomeexpense_to'] : ''; ?>" id="incomeexpense_to" name="incomeexpense_to" placeholder="Date To">
+                        <input type="date" required="true" class="form-control form-control-sm" value="<?php echo isset($_POST['incomeexpense_to']) ? $_POST['incomeexpense_to'] : ''; ?>" id="incomeexpense_to" name="incomeexpense_to" placeholder="Date To">
                      </div>
                   </div>
                </div>

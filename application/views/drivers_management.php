@@ -31,6 +31,9 @@
                         <th>Photo</th>
                         <th>Name</th>
                         <th>Mobile</th>
+                        <th>Adhar Number</th>
+                        <th>Address</th>
+                        <th>Alternate Contact</th>
                         <th>License No</th>
                         <th>License Exp Date</th>
                         <th>Date of Joining</th>
@@ -52,6 +55,9 @@
                         <?php } ?></td>
                         <td> <?php echo output($driverslists['d_name']); ?></td>
                         <td> <?php echo output($driverslists['d_mobile']); ?></td>
+                        <td> <?php echo output($driverslists['d_adhar_number']); ?></td>
+                        <td><?php echo output($driverslists['d_address']); ?></td>
+                        <td> <?php echo output($driverslists['d_contact']); ?></td>
                         <td><?php echo output($driverslists['d_licenseno']); ?></td>
                         <td><?php echo output(date(dateformat(), strtotime($driverslists['d_license_expdate']))); ?></td>
                         <td><?php echo output(date(dateformat(), strtotime($driverslists['d_doj']))); ?></td>

@@ -43,12 +43,12 @@
                   <li class="list-group-item">
                     <b>Bookings</b> <a class="float-right"><?= count($bookings); ?></a>
                   </li>
-                  <li class="list-group-item">
+                  <!-- <li class="list-group-item">
                     <b>Geofence</b> <a class="float-right"><?= count($vechicle_geofence); ?></a>
                   </li>
                   <li class="list-group-item">
                     <b>Notifications</b> <a class="float-right"><?= count($geofence_events); ?></a>
-                  </li>
+                  </li> -->
                 </ul>
 
               </div>
@@ -65,7 +65,7 @@
                 <ul class="nav nav-pills">
                    <li class="nav-item"><a class="nav-link active" href="#basicinfo" data-toggle="tab">Basic Info</a></li>
                   <li class="nav-item"><a class="nav-link " href="#bookings" data-toggle="tab">Bookings</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#vechicle_geofence" data-toggle="tab">Geofence</a></li>
+                  <!-- <li class="nav-item"><a class="nav-link" href="#vechicle_geofence" data-toggle="tab">Geofence</a></li> -->
                 <li class="nav-item"><a class="nav-link" href="#vechicle_incomexpense" data-toggle="tab">Income & Expense</a></li>
                 </ul>
               </div><!-- /.card-header -->
@@ -154,8 +154,8 @@
 
                   </div>
                   <!-- /.tab-pane -->
-                  <div class="tab-pane" id="vechicle_geofence">
-                    <!-- The timeline -->
+                  <!-- <div class="tab-pane" id="vechicle_geofence">
+                
                     <table id="vgeofencetbl" class="table table-striped projects">
                           <thead>
                               <tr>
@@ -197,7 +197,7 @@
                           <?php } } ?>
                           </tbody>
                       </table>
-                  </div>
+                  </div> -->
 
                   <div class="tab-pane" id="vechicle_incomexpense">
                      <table id="incomexpenstbl" class="table table-striped projects">
@@ -290,7 +290,7 @@
                       <td>Mileage/Litre</td>
                       <td><?= output($vehicledetails['v_mileageperlitre']) ?></td>
                     </tr>
-                     <tr>
+                     <!-- <tr>
                       <td>API URL</td>
                       <td><?= output($vehicledetails['v_api_url']) ?></td>
                     </tr>
@@ -301,7 +301,7 @@
                      <tr>
                       <td>GPS API Password</td>
                       <td><?= output($vehicledetails['v_api_password']) ?></td>
-                    </tr>
+                    </tr> -->
                      <tr>
                       <td>Created Date</td>
                       <td><?= output($vehicledetails['v_created_date']) ?></td>
