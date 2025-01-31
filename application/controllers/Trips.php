@@ -125,7 +125,7 @@ class Trips extends CI_Controller
 		}
 		$this->template->template_render('trips_details', $data);
 	}
-	
+
 	public function invoice()
 	{
 		$data = array();

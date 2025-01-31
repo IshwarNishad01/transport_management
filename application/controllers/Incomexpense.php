@@ -53,8 +53,17 @@ class Incomexpense extends CI_Controller {
 	public function updateincomexpense()
 	{
 		$testxss = xssclean($_POST);
+
+		$data = $this->input->post();
+	
 		if($testxss){
-			$response = $this->Incomexpense_model->updateincomexpense($this->input->post());
+
+			$data = $this->input->post();
+		
+			$this->db->where('ie_id', $data['ie_id']);
+			$response =  $this->db->update('incomeexpense', $data);
+			
+			// $response = $this->Incomexpense_model->updateincomexpense($this->input->post());
 				if($response) {
 					$this->session->set_flashdata('successmessage', ucfirst($this->input->post('ie_type')).' updated successfully..');
 				    redirect('incomexpense');

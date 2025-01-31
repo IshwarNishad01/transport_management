@@ -3,23 +3,22 @@
 class Fuel_model extends CI_Model
 {
 
-	public function add_fuel($data)
-	{
-		unset($data['exp']);
-		// $data['v_fuelfilldate'] = reformatDate($data['v_fuelfilldate']);
-		return	$this->db->insert('fuel', $data);
-	}
-
 	// public function add_fuel($data)
 	// {
-	// 	if ($this->db->insert('fuel', $data)) {
-	// 		return $this->db->insert_id();
-	// 	} else {
-	// 		log_message('error', 'Database Error: ' . json_encode($this->db->error()));
-	// 		return false;
-	// 	}
+	// 	unset($data['exp']);
+	// 	$data['v_fuelfilldate'] = reformatDate($data['v_fuelfilldate']);
+	// 	return	$this->db->insert('fuel', $data);
 	// }
 
+	public function add_fuel($data)
+	{
+		if ($this->db->insert('fuel', $data)) {
+			return $this->db->insert_id();
+		} else {
+			log_message('error', 'Database Error: ' . json_encode($this->db->error()));
+			return false;
+		}
+	}
 
 	public function getall_fuel()
 	{
@@ -36,16 +35,15 @@ class Fuel_model extends CI_Model
 			return false;
 		}
 	}
+
 	public function editfuel($f_id)
 	{
 		return $this->db->select('*')->from('fuel')->where('v_fuel_id', $f_id)->get()->result_array();
 	}
+
 	public function updatefuel($v_fuel_id, $data)
 	{
-		// Use $this->db->where() to set the condition for the update
 		$this->db->where('v_fuel_id', $v_fuel_id);
-
-		// Perform the update with the data array
 		return $this->db->update('fuel', $data);
 	}
 

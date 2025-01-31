@@ -21,9 +21,10 @@ class Fuel extends CI_Controller
 	}
 	public function addfuel()
 	{
-		$this->load->model('trips_model');
-		$data['driverlist'] = $this->trips_model->getall_driverlist();
-		$data['vechiclelist'] = $this->trips_model->getall_vechicle();
+		$this->load->model('Trips_model');
+		$data['driverlist'] = $this->Trips_model->getall_driverlist();
+		$data['vechiclelist'] = $this->Trips_model->getall_vechicle();
+		$data['reminderdetails'] = $this->Trips_model->getall_vechicle();
 		$this->template->template_render('fuel_add', $data);
 	}
 
@@ -32,7 +33,7 @@ class Fuel extends CI_Controller
 		// Clean and validate input
 		$testxss = xssclean($_POST); // Ensure `xssclean()` function exists and works
 		if ($testxss) {
-			$fuelData = [
+			$data = [
 				'v_id' => $this->input->post('r_v_id'), // Vehicle ID
 				'v_fueladdedby' => $this->input->post('v_fueladdedby'), // Driver ID
 				'v_fuelfilldate' => $this->input->post('v_fuelfilldate'), // Fill Date
@@ -42,9 +43,9 @@ class Fuel extends CI_Controller
 				'v_fuelcomments' => $this->input->post('v_fuelcomments'), // Comments
 				'v_created_date' => date('Y-m-d H:i:s') // Created Date
 			];
-			// print_r($fuelData);die();
 			// Call the model to insert data
-			$response = $this->Fuel_model->add_fuel($fuelData);
+			$response = $this->Fuel_model->add_fuel($data);
+			// print_r($response);die();
 
 			if ($response) {
 				// Check for expense inclusion
@@ -94,9 +95,9 @@ class Fuel extends CI_Controller
 	public function editfuel()
 	{
 		$f_id = $this->uri->segment(3);
-		$this->load->model('trips_model');
-		$data['vechiclelist'] = $this->trips_model->getall_vechicle();
-		$data['driverlist'] = $this->trips_model->getall_driverlist();
+		$this->load->model('Trips_model');
+		$data['vechiclelist'] = $this->Trips_model->getall_vechicle();
+		$data['driverlist'] = $this->Trips_model->getall_driverlist();
 		$data['fueldetails'] = $this->Fuel_model->editfuel($f_id);
 		$data['reminderdetails'] = $this->Fuel_model->editfuel($f_id);
 		$this->template->template_render('fuel_add', $data);

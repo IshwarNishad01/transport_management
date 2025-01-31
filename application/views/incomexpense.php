@@ -33,6 +33,7 @@
                           <th>Description</th>
                           <th>Amount</th>
                           <th>Type</th>
+                          <th>Payment Mode</th>
                           <?php if(userpermission('lr_ie_edit') || userpermission('lr_ie_del')) { ?>
                           <th>Action</th>
                           <?php } ?>
@@ -45,13 +46,14 @@
                            ?>
                         <tr>
                            <td> <?php echo output($count); $count++; ?></td>
-                           <td> <?php echo output($incomexpenses['vech_name']->v_name).'_'.output($incomexpenses['vech_name']->v_registration_no); ?></td>
+                           <td> <?php echo output($incomexpenses['vech_name']->v_name).'Others'.output($incomexpenses['vech_name']->v_registration_no); ?></td>
                            <!-- <td> </?php echo output(date(dateformat(), strtotime($incomexpenses['ie_date']))); ?></td> -->
 
                            <td><?php echo output($incomexpenses['ie_date']); ?></td>
                            <td><?php echo output($incomexpenses['ie_description']); ?></td>
                            <td><?php echo output($incomexpenses['ie_amount']); ?></td>
                            <td><span class="badge <?php echo ($incomexpenses['ie_type']=='income') ? 'badge-success' : 'badge-danger'; ?>"><?php echo ($incomexpenses['ie_type']=='income') ? 'Income' : 'Expense'; ?></span>  
+                           <td><?php echo output($incomexpenses['ie_mode']); ?></td>
                            </td>
                             <td>
                             <?php if(userpermission('lr_ie_edit')) { ?>

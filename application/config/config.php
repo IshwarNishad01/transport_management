@@ -23,9 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = "http://localhost/vms_v6/";
+// $config['base_url'] = "https://phpstack-1364131-5116818.cloudwaysapps.com/";
 
-// $config['base_url'] = "http://localhost/transport_management/";
+$config['base_url'] = "http://localhost/vms_v6/";
 
 /*
 |--------------------------------------------------------------------------

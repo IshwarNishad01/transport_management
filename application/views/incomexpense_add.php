@@ -31,11 +31,15 @@
                 <div class="form-group">
                   <select id="ie_v_id" class="form-control" name="ie_v_id">
                     <option value="">Select Vechicle</option>
+                    
                     <?php foreach ($vechiclelist as $key => $vechiclelists) { ?>
                       <option <?php if ((isset($incomexpensedetails)) && $incomexpensedetails[0]['ie_v_id'] == $vechiclelists['v_id']) {
                                 echo 'selected';
                               } ?> value="<?php echo output($vechiclelists['v_id']) ?>"><?php echo output($vechiclelists['v_name']) . ' - ' . output($vechiclelists['v_registration_no']); ?></option>
                     <?php  } ?>
+                    <option value="1" <?php if ((isset($incomexpensedetails)) && $incomexpensedetails[0]['ie_v_id'] == 1) {
+                                echo 'selected';
+                              } ?>>Others</option>
                   </select>
                 </div>
               </div>
@@ -66,6 +70,22 @@
                   <input type="text" class="form-control" id="ie_description" value="<?php echo (isset($incomexpensedetails)) ? $incomexpensedetails[0]['ie_description'] : '' ?>" name="ie_description" placeholder="Description">
                 </div>
               </div>
+
+              <div class="col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label class="form-label">Mode Of Payment</label>
+                  <select name="ie_mode" id="ie_mode" class="form-control">
+                    <option value="">Select type</option>
+                    <option <?php if ((isset($incomexpensedetails)) && $incomexpensedetails[0]['ie_mode'] == 'Cash') {
+                              echo 'selected';
+                            } ?> value="Cash">Cash</option>
+                    <option <?php if ((isset($incomexpensedetails)) && $incomexpensedetails[0]['ie_mode'] == 'UPI') {
+                              echo 'selected';
+                            } ?> value="UPI">UPI</option>
+                  </select>
+                </div>
+              </div>
+
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Amount<span class="form-required">*</span></label>

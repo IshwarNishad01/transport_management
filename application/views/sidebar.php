@@ -231,7 +231,7 @@
                </ul>
             </li>
             <?php }  if(userpermission('lr_reminder_list') || userpermission('lr_reminder_add')) { ?>
-            <li class="nav-item has-treeview <?php echo ((activate_menu('reminder'))=='active') ? 'menu-open':'' ?>
+            <!-- <li class="nav-item has-treeview <?php echo ((activate_menu('reminder'))=='active') ? 'menu-open':'' ?>
                <?php echo ((activate_menu('addreminder'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('editreminder'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('reminder');?> <?php echo activate_menu('addreminder');?><?php echo activate_menu('editreminder');?>">
                   <i class="nav-icon fas fa fa-bullhorn"></i>
@@ -257,7 +257,7 @@
                   </li>
                   <?php } ?>
                </ul>
-            </li>
+            </li> -->
             <?php }  if(userpermission('lr_ie_list') || userpermission('lr_ie_add')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('incomexpense'))=='active') ? 'menu-open':'' ?>
                <?php echo ((activate_menu('addincomexpense'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('editincomexpense'))=='active') ? 'menu-open':'' ?>">
@@ -385,14 +385,6 @@
                         <p>Driver</p>
                      </a>
                   </li>
-
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>reports/vehiclereport" class="nav-link <?php echo activate_menu('vehiclereport');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Vehicles</p>
-                     </a>
-                  </li>
-
                </ul>
             </li>
             <?php } if(userpermission('lr_settings')) { ?>

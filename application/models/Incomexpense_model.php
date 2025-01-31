@@ -8,7 +8,7 @@ class Incomexpense_model extends CI_Model{
 	} 
 
     public function getall_incomexpense() { 
-		$incomexpense = $this->db->select('*')->from('incomeexpense')->order_by('ie_id','desc')->get()->result_array();
+		$incomexpense = $this->db->select('*')->from('incomeexpense')->order_by('ie_date','desc')->get()->result_array();
 		if(!empty($incomexpense)) {
 			foreach ($incomexpense as $key => $incomexpenses) {
 				$newincomexpense[$key] = $incomexpenses;

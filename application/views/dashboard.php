@@ -121,7 +121,7 @@
                </div>
             </div>
             <?php } if(userpermission('lr_reminder_list')) { ?>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                <div class="card">
                   <div class="card-header ui-sortable-handle" style="cursor: move;">
                      <h3 class="card-title">
@@ -131,7 +131,6 @@
                      <div class="card-tools">
                      </div>
                   </div>
-                  <!-- /.card-header -->
                   <div class="card-body">
                      <ul class="todo-list ui-sortable" data-widget="todo-list">
                         <?php if(!empty($todayreminder)) { foreach($todayreminder as $reminder) { ?>
@@ -146,15 +145,14 @@
                         <?php }  } else { echo 'No reminders'; } ?>  
                      </ul>
                   </div>
-                  <!-- /.card-body -->
                   <div class="card-footer clearfix">
                      <a href="<?= base_url() ?>reminder/addreminder"><button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add Reminder</button></a>
                   </div>
                </div>
-            </div>
+            </div> -->
          </div>
          <?php } if(userpermission('lr_liveloc')) { ?>
-         <div class="col-sm-6 col-lg-6 ">
+         <!-- <div class="col-sm-6 col-lg-6 ">
             <div class="card ">
                <div class="card-header">
                   <h2 class="card-title">Vechicle Current Location</h2>
@@ -178,9 +176,9 @@
                   </tbody>
                </table>
             </div>
-         </div>
+         </div> -->
          <?php } if(userpermission('lr_vech_list')) { ?>
-         <div class="col-sm-6 col-lg-6 ">
+         <!-- <div class="col-sm-6 col-lg-6 ">
             <div class="card">
                <div class="card-header">
                   <h2 class="card-title">Vechicle Running Status</h2>
@@ -204,7 +202,7 @@
                      <?php  }   }  ?>
                </table>
             </div>
-         </div>
+         </div> -->
          <!-- <?php } if(userpermission('lr_geofence_list')) { ?>
          <div class="col-md-6">
             <div class="col-sm-12 col-lg-12 ">

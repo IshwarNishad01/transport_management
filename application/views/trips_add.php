@@ -139,25 +139,41 @@
 
                <div class="col-sm-6 col-md-3">
                   <div class="form-group">
-                     <label class="form-label">Item<span class="form-required">*</span></label>
+                     <label class="form-label">Item</label>
                      <br>
                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox1" value="option1" onclick="limitCheckboxSelection(this)">
+                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox1" value="option1" <?php
+                                                                                                                                 echo (isset($tripdetails) && $tripdetails[0]['inlineitem'] == 'option1')
+                                                                                                                                    ? 'checked'
+                                                                                                                                    : '';
+                                                                                                                                 ?> onclick="limitCheckboxSelection(this)">
                         <label class="form-check-label" for="inlineCheckbox1">Coal</label>
                      </div>
 
                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox2" value="option2" onclick="limitCheckboxSelection(this)">
+                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox2" value="option2" <?php
+                                                                                                                                 echo (isset($tripdetails) && $tripdetails[0]['inlineitem'] == 'option2')
+                                                                                                                                    ? 'checked'
+                                                                                                                                    : '';
+                                                                                                                                 ?> onclick="limitCheckboxSelection(this)">
                         <label class="form-check-label" for="inlineCheckbox2">Fly Ash</label>
                      </div>
 
                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox3" value="option3" onclick="limitCheckboxSelection(this)">
+                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox3" value="option3" <?php
+                                                                                                                                 echo (isset($tripdetails) && $tripdetails[0]['inlineitem'] == 'option3')
+                                                                                                                                    ? 'checked'
+                                                                                                                                    : '';
+                                                                                                                                 ?> onclick="limitCheckboxSelection(this)">
                         <label class="form-check-label" for="inlineCheckbox3">Gitti</label>
                      </div>
 
                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox4" value="option4" onclick="limitCheckboxSelection(this)">
+                        <input class="form-check-input" type="checkbox" name="inlineitem" id="inlineCheckbox4" value="option4" <?php
+                                                                                                                                 echo (isset($tripdetails) && $tripdetails[0]['inlineitem'] == 'option4')
+                                                                                                                                    ? 'checked'
+                                                                                                                                    : '';
+                                                                                                                                 ?> onclick="limitCheckboxSelection(this)">
                         <label class="form-check-label" for="inlineCheckbox4">Sand</label>
                      </div>
                   </div>
@@ -219,7 +235,7 @@
                   </div>
                </div>
 
-               <?php if (!isset($tripdetails)) {  ?>
+               <!-- </?php if (!isset($tripdetails)) {  ?>
                   <div class="col-sm-6 col-md-5">
                      <div class="form-group">
                         <label class="form-label">Email</label>
@@ -231,7 +247,7 @@
                         </div>
                      </div>
                   </div>
-               <?php } ?>
+               </?php } ?> -->
 
             </div>
 

@@ -86,13 +86,13 @@
                 </div>
               </div>
               <?php if (!isset($fueldetails)) {  ?>
-                <!-- <br> -->
-                <!-- <div class="col-sm-6 col-md-3">
+                <br> 
+                <div class="col-sm-6 col-md-3">
                   <div class="form-group">
                     <label class="form-label">Need to add in expense?</label>
                     <input class="form-control form-check-input" id="exp" name="exp" type="checkbox">
                   </div>
-                </div> -->
+                </div>
               <?php } ?>
             </div>
 

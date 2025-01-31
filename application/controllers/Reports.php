@@ -56,11 +56,6 @@ class Reports extends CI_Controller {
 		$data['vehiclelist'] = $this->vehicle_model->getall_vehicle();
 		$this->template->template_render('report_fuel',$data);
 	}
-
-	public function vehiclereport(){
-		$this->template->template_render('reports_vehicle');
-	}
-
 	public function driversreport()	{
 		$data['dlist'] = $this->drivers_model->getall_drivers();
 		if(isset($_POST['driverreport'])) {

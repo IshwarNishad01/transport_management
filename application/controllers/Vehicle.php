@@ -27,10 +27,81 @@ class Vehicle extends CI_Controller
 		$this->template->template_render('vehicle_add', $data);
 	}
 
+	// public function insertvehicle()
+	// {
+	// 	// Form Validation Rules
+	// 	$this->form_validation->set_rules('v_registration_no', 'Registration Number', 'required|trim|is_unique[vehicles.v_registration_no]');
+	// 	$this->form_validation->set_rules('v_name', 'Vehicle Name', 'required|trim');
+	// 	$this->form_validation->set_rules('v_model', 'Model', 'required|trim');
+	// 	$this->form_validation->set_rules('v_chassis_no', 'Chassis No', 'required|trim');
+	// 	$this->form_validation->set_rules('v_engine_no', 'Engine No', 'required|trim');
+	// 	$this->form_validation->set_rules('v_manufactured_by', 'Manufactured By', 'required|trim');
+	// 	$this->form_validation->set_rules('v_type', 'Vehicle Type', 'required|trim');
+	// 	$this->form_validation->set_rules('v_color', 'Vehicle Color', 'required|trim');
+
+	// 	if ($this->form_validation->run() === FALSE) {
+	// 		$this->session->set_flashdata('message', validation_errors('<p>', '</p>'));
+	// 		redirect('vehicle/addvehicle');
+	// 	}
+
+	// 	// Prepare Data for Insertion
+	// 	$data = [
+	// 		'v_registration_no' => $this->input->post('v_registration_no'),
+	// 		'v_name' => $this->input->post('v_name'),
+	// 		'v_insurance_date' => $this->input->post('v_insurance_date'),
+	// 		'v_fitness_date' => $this->input->post('v_fitness_date'),
+	// 		'v_installments_due_date' => $this->input->post('v_installments_due_date'),
+	// 		'v_installments_pending_date' => $this->input->post('v_installments_pending_date'),
+	// 		'v_installments_amount' => $this->input->post('v_installments_amount'),
+	// 		'v_model' => $this->input->post('v_model'),
+	// 		'v_chassis_no' => $this->input->post('v_chassis_no'),
+	// 		'v_engine_no' => $this->input->post('v_engine_no'),
+	// 		'v_manufactured_by' => $this->input->post('v_manufactured_by'),
+	// 		'v_type' => $this->input->post('v_type'),
+	// 		'v_color' => $this->input->post('v_color'),
+	// 		'v_is_active' => $this->input->post('v_is_active') ? 1 : 0,
+	// 		'v_reg_exp_date' => $this->input->post('v_reg_exp_date'),
+	// 		'v_group' => $this->input->post('v_group')
+	// 	];
+
+	// 	// File Upload Configuration
+	// 	$this->load->library('upload');
+	// 	$config = [
+	// 		'upload_path' => './assets/uploads/',
+	// 		'allowed_types' => 'jpg|jpeg|png|gif|pdf|docx',
+	// 		'encrypt_name' => TRUE
+	// 	];
+	// 	$this->upload->initialize($config);
+
+	// 	$fileInputs = ['file', 'file1'];
+	// 	foreach ($fileInputs as $key) {
+	// 		if (!empty($_FILES[$key]['name'])) {
+	// 			if ($this->upload->do_upload($key)) {
+	// 				$uploadData = $this->upload->data();
+	// 				$data["v_{$key}"] = $uploadData['file_name'];
+	// 			} else {
+	// 				$this->session->set_flashdata('message', $this->upload->display_errors('<p>', '</p>'));
+	// 				redirect('vehicle/addvehicle');
+	// 			}
+	// 		}
+	// 	}
+
+	// 	// Insert Data into Database with Error Handling
+	// 	if ($this->db->insert('vehicles', $data)) {
+	// 		$this->session->set_flashdata('message', '<p class="">New vehicle added successfully.</p>');
+	// 	} else {
+	// 		// Capture and Display Database Error
+	// 		$dbError = $this->db->error();
+	// 		$errorMessage = !empty($dbError['message']) ? $dbError['message'] : 'Unknown error occurred.';
+	// 		$this->session->set_flashdata('message', '<p class="">Failed to add the vehicle: ' . $errorMessage . '</p>');
+	// 	}
+	// 	redirect('vehicle');
+	// }
+
 	public function insertvehicle()
 	{
 		// Form Validation Rules
-		$this->form_validation->set_rules('v_registration_no', 'Registration Number', 'required|trim|is_unique[vehicles.v_registration_no]');
+		$this->form_validation->set_rules('v_registration_no', 'Registration Number', 'required|trim');
 		$this->form_validation->set_rules('v_name', 'Vehicle Name', 'required|trim');
 		$this->form_validation->set_rules('v_model', 'Model', 'required|trim');
 		$this->form_validation->set_rules('v_chassis_no', 'Chassis No', 'required|trim');
@@ -44,7 +115,7 @@ class Vehicle extends CI_Controller
 			redirect('vehicle/addvehicle');
 		}
 
-		// Prepare Data for Insertion
+		// Prepare Data for Insertion or Update
 		$data = [
 			'v_registration_no' => $this->input->post('v_registration_no'),
 			'v_name' => $this->input->post('v_name'),
@@ -86,15 +157,31 @@ class Vehicle extends CI_Controller
 			}
 		}
 
-		// Insert Data into Database with Error Handling
-		if ($this->db->insert('vehicles', $data)) {
-			$this->session->set_flashdata('message', '<p class="">New vehicle added successfully.</p>');
+		// Check if the vehicle already exists
+		$this->db->where('v_registration_no', $data['v_registration_no']);
+		$existingVehicle = $this->db->get('vehicles')->row();
+
+		if ($existingVehicle) {
+			// Update the existing record
+			$this->db->where('v_registration_no', $data['v_registration_no']);
+			if ($this->db->update('vehicles', $data)) {
+				$this->session->set_flashdata('message', '<p class="">Vehicle updated successfully.</p>');
+			} else {
+				$dbError = $this->db->error();
+				$errorMessage = !empty($dbError['message']) ? $dbError['message'] : 'Unknown error occurred.';
+				$this->session->set_flashdata('message', '<p class="">Failed to update the vehicle: ' . $errorMessage . '</p>');
+			}
 		} else {
-			// Capture and Display Database Error
-			$dbError = $this->db->error();
-			$errorMessage = !empty($dbError['message']) ? $dbError['message'] : 'Unknown error occurred.';
-			$this->session->set_flashdata('message', '<p class="">Failed to add the vehicle: ' . $errorMessage . '</p>');
+			// Insert a new record
+			if ($this->db->insert('vehicles', $data)) {
+				$this->session->set_flashdata('message', '<p class="">New vehicle added successfully.</p>');
+			} else {
+				$dbError = $this->db->error();
+				$errorMessage = !empty($dbError['message']) ? $dbError['message'] : 'Unknown error occurred.';
+				$this->session->set_flashdata('message', '<p class="">Failed to add the vehicle: ' . $errorMessage . '</p>');
+			}
 		}
+
 		redirect('vehicle');
 	}
 

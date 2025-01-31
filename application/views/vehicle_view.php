@@ -34,108 +34,9 @@
              <p class="text-muted text-center"><?= ucwords($vehicledetails['v_type']); ?></p>
 
 
-<<<<<<< HEAD
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Bookings</b> <a class="float-right"><?= count($bookings); ?></a>
-                  </li>
-                  <!-- <li class="list-group-item">
-                    <b>Geofence</b> <a class="float-right"><?= count($vechicle_geofence); ?></a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Notifications</b> <a class="float-right"><?= count($geofence_events); ?></a>
-                  </li> -->
-                </ul>
-=======
->>>>>>> bab8ff00d50085133a8a7e113fc8de4e4c81ce4f
 
              <p class="text-muted text-center"><?= ($vehicledetails['v_is_active'] == 1) ? '<span class="right badge badge-success">Active</span>' : '<span class="right badge badge-danger">Inactive</span>' ?></p>
 
-<<<<<<< HEAD
-           
-          </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                   <li class="nav-item"><a class="nav-link active" href="#basicinfo" data-toggle="tab">Basic Info</a></li>
-                  <li class="nav-item"><a class="nav-link " href="#bookings" data-toggle="tab">Bookings</a></li>
-                  <!-- <li class="nav-item"><a class="nav-link" href="#vechicle_geofence" data-toggle="tab">Geofence</a></li> -->
-                <li class="nav-item"><a class="nav-link" href="#vechicle_incomexpense" data-toggle="tab">Income & Expense</a></li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="tab-pane " id="bookings">
-                     <table id="bookingstbl" class="table table-striped projects">
-                          <thead>
-                              <tr>
-                                  <th class="percent1">
-                                      #
-                                  </th>
-                                  <th class="percent25">
-                                      Driver
-                                  </th>
-                                  <th class="percent25">
-                                      Customer
-                                  </th>
-                                  <th class="percent25">
-                                    From & To
-                                  </th>
-                                  <th class="percent25">
-                                    Booking Value
-                                  </th>
-                                 
-                                  <th class="percent25">
-                                      Trip Status
-                                  </th>
-                                  <th class="percent25">
-                                    Action
-                                  </th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                            <?php if(!empty($bookings)) {
-                            $count=1;
-                            foreach($bookings as $bookingsdata){
-                            ?>
-                              <tr>
-                                  <td>
-                                     <?php echo output($count); $count++; ?>
-                                  </td>
-                                   <td><?= (isset($bookingsdata['t_driver_details']->d_name))?$bookingsdata['t_driver_details']->d_name:'<span class="badge badge-danger">Yet to Assign</span>'; ?></td>
-                                  <td>
-                                     <?php echo output($bookingsdata['t_customer_details']->c_name);?>
-                                  </td>
-                                  <td>
-                                     <?php echo '<small>'.output($bookingsdata['t_trip_fromlocation']).'</small>'; echo '<br><span class="badge badge-success">to</span><br>';?>
-                                     <?php echo '<small>'.output($bookingsdata['t_trip_tolocation']).'</small>';?>
-                                  </td>
-                                  <td>
-                                     <?php echo output($bookingsdata['t_trip_amount']);?>
-                                  </td>
-                                  
-                                   <td>
-                                   <?php 
-                                     switch($bookingsdata['t_trip_status']){
-                                        case 'ongoing':
-                                            $status = '<span class="badge badge-info">Ongoing</span>';
-                                            break;
-                                        case 'completed':
-                                            $status = '<span class="badge badge-success">Completed</span>';
-                                             break;
-                                        case 'yettostart':
-                                            $status = '<span class="badge badge-warning">Yet to start</span>';
-                                             break;
-                                        case 'cancelled':
-                                            $status = '<span class="badge badge-danger">Cancelled</span>'; 
-                                             break; 
-                                        case 'yettoconfirm':
-                                            $status = '<span class="badge badge-danger">Yet to Confirm</span>'; 
-                                             break;    
-                                      }
-=======
              <ul class="list-group list-group-unbordered mb-3">
                <li class="list-group-item">
                  <b>Bookings</b> <a class="float-right"><?= count($bookings); ?></a>
@@ -147,62 +48,12 @@
                  <b>Notifications</b> <a class="float-right"><?= count($geofence_events); ?></a>
                </li>
              </ul>
->>>>>>> bab8ff00d50085133a8a7e113fc8de4e4c81ce4f
 
            </div>
            <!-- /.card-body -->
          </div>
          <!-- /.card -->
 
-<<<<<<< HEAD
-                  </div>
-                  <!-- /.tab-pane -->
-                  <!-- <div class="tab-pane" id="vechicle_geofence">
-                
-                    <table id="vgeofencetbl" class="table table-striped projects">
-                          <thead>
-                              <tr>
-                                  <th class="percent1">
-                                      #
-                                  </th>
-                                  <th class="percent25">
-                                      Name
-                                  </th>
-                                  <th class="percent25">
-                                      Description
-                                  </th>
-                                 <th class="percent25">
-                                    Action
-                                </th>
-                                  
-                              </tr>
-                          </thead>
-                          <tbody>
-                            <?php if(!empty($vechicle_geofence)){ 
-                            $count=1;
-                            foreach($vechicle_geofence as $vechicle_geofence){
-                            ?>
-                              <tr>
-                                  <td>
-                                     <?php echo output($count); $count++; ?>
-                                  </td>
-                                  <td>
-                                      <?php echo output($vechicle_geofence['geo_name']);?>
-                                  </td>
-                                  <td>
-                                     <?php echo output($vechicle_geofence['geo_description']);?>
-                                  </td>
-                                  <td> <a class="icon" href="<?php echo base_url(); ?>geofence">
-                                     <i class="fa fa-eye"></i>
-                                    </a> 
-                                  </td>
-                              </tr>
-                          <?php } } ?>
-                          </tbody>
-                      </table>
-                  </div> -->
-=======
->>>>>>> bab8ff00d50085133a8a7e113fc8de4e4c81ce4f
 
        </div>
        <!-- /.col -->
@@ -309,15 +160,6 @@
                  <table id="vgeofencetbl" class="table table-striped projects">
                    <thead>
                      <tr>
-<<<<<<< HEAD
-                      <td>Mileage/Litre</td>
-                      <td><?= output($vehicledetails['v_mileageperlitre']) ?></td>
-                    </tr>
-                     <!-- <tr>
-                      <td>API URL</td>
-                      <td><?= output($vehicledetails['v_api_url']) ?></td>
-                    </tr>
-=======
                        <th class="percent1">
                          #
                        </th>
@@ -421,21 +263,14 @@
                <div class="tab-pane active" id="basicinfo">
                  <table class="table table-sm table-bordered">
                    <tbody>
->>>>>>> bab8ff00d50085133a8a7e113fc8de4e4c81ce4f
                      <tr>
                        <td>Registration No</td>
                        <td><?= output($vehicledetails['v_registration_no']) ?></td>
                      </tr>
                      <tr>
-<<<<<<< HEAD
-                      <td>GPS API Password</td>
-                      <td><?= output($vehicledetails['v_api_password']) ?></td>
-                    </tr> -->
-=======
                        <td>Name</td>
                        <td><?= output($vehicledetails['v_name']) ?></td>
                      </tr>
->>>>>>> bab8ff00d50085133a8a7e113fc8de4e4c81ce4f
                      <tr>
                        <td>Model</td>
                        <td><?= output($vehicledetails['v_model']) ?></td>
