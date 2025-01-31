@@ -3,8 +3,8 @@
 class reminder_model extends CI_Model{
 	
 	public function add_reminder($data) { 
-		$data['r_date'] = reformatDate($data['r_date']); 
-		return	$this->db->insert('reminder',$data);
+		// $data['r_date'] = reformatDate($data['r_date']); 
+		$this->db->insert('reminder',$data);
 	} 
     public function getall_reminder() { 
       $this->db->select("reminder.*,vehicles.v_name");

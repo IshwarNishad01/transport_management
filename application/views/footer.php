@@ -1,5 +1,12 @@
 <footer class="main-footer">
+<<<<<<< HEAD
    <strong>Devloped By <a href="https://raysitworld.com/" target="_blank">Rays IT & Design World</a>.</strong>
+=======
+   <!-- <strong>Devloped By <a href="http://codeforts.com" target="_blank">Codeforts</a>.</strong>
+   <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 6.0
+   </div> -->
+>>>>>>> bab8ff00d50085133a8a7e113fc8de4e4c81ce4f
 </footer>
 </div>
 </div>

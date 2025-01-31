@@ -14,10 +14,22 @@
       </div>
    </div>
 </div>
+
+<?php if ($this->session->flashdata('message')): ?>
+   <div class="alert alert-success">
+      <?= $this->session->flashdata('message'); ?>
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+   </div>
+   <?php $this->session->unset_userdata('message'); // Unset the flashdata 
+   ?>
+<?php endif; ?>
+
+
 <section class="content">
    <div class="container-fluid">
       <div class="card">
          <div class="card-body p-0">
+
             <div class="table-responsive">
                <table id="vehiclelisttbl" class="table card-table table-vcenter text-nowrap">
                   <thead>
@@ -34,45 +46,51 @@
                         <th>Chassis No</th>
                         <th>Group</th>
                         <th>Is Active</th>
-                        <?php if(userpermission('lr_vech_list_view') || userpermission('lr_vech_list_edit') || userpermission('lr_vech_del')) { ?>
-                        <th>Action</th>
+                        <?php if (userpermission('lr_vech_list_view') || userpermission('lr_vech_list_edit') || userpermission('lr_vech_del')) { ?>
+                           <th>Action</th>
                         <?php } ?>
                      </tr>
                   </thead>
                   <tbody>
-                     <?php if(!empty($vehiclelist)){  $count=1; foreach($vehiclelist as $vehiclelists){  ?>
-                     <tr>
-                        <td><?php echo output($count); $count++; ?></td>
-                        <td><?php echo output($vehiclelists['v_name']); ?></td>
-                        <td><?php echo output($vehiclelists['v_registration_no']); ?></td>
-                        <td><?php echo output($vehiclelists['v_model']); ?></td>
-                        <td><?php echo output($vehiclelists['v_insurance_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_fitness_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_installments_due_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_installments_pending_date']); ?></td>
-                        <td><?php echo output($vehiclelists['v_installments_amount']); ?></td>
-                        <td><?php echo output($vehiclelists['v_chassis_no']); ?></td>
-                        <td><?php echo output($vehiclelists['gr_name']); ?></td>
-                        <td><span class="badge <?php echo ($vehiclelists['v_is_active']=='1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($vehiclelists['v_is_active']=='1') ? 'Active' : 'Inactive'; ?></span>  
-                        </td>
-                        <?php if(userpermission('lr_vech_list_view') || userpermission('lr_vech_list_edit') || userpermission('lr_vech_del')) { ?>
-                        <td>
-                           <?php if(userpermission('lr_vech_list_view')) { ?>
-                           <a class="icon" href="<?php echo base_url(); ?>vehicle/viewvehicle/<?php echo output($vehiclelists['v_id']); ?>">
-                           <i class="fa fa-eye"></i>
-                           </a> | 
-                           <?php } if(userpermission('lr_vech_list_edit')) { ?>
-                           <a class="icon" href="<?php echo base_url(); ?>vehicle/editvehicle/<?php echo output($vehiclelists['v_id']); ?>">
-                           <i class="fa fa-edit"></i>
-                           </a>
-                           <?php } if(userpermission('lr_vech_del')) { ?> |
-                              <a data-toggle="modal" href="" onclick="confirmation('<?php echo base_url(); ?>vehicle/deletevehicle','<?= output($vehiclelists['v_id']); ?>')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
-                           </a> 
-                           <?php } ?>
-                        </td>
-                        <?php } ?>
-                     </tr>
-                     <?php } } ?>
+                     <?php if (!empty($vehiclelist)) {
+                        $count = 1;
+                        foreach ($vehiclelist as $vehiclelists) {  ?>
+                           <tr>
+                              <td><?php echo output($count);
+                                    $count++; ?></td>
+                              <td><?php echo output($vehiclelists['v_name']); ?></td>
+                              <td><?php echo output($vehiclelists['v_registration_no']); ?></td>
+                              <td><?php echo output($vehiclelists['v_model']); ?></td>
+                              <td><?php echo output($vehiclelists['v_insurance_date']); ?></td>
+                              <td><?php echo output($vehiclelists['v_fitness_date']); ?></td>
+                              <td><?php echo output($vehiclelists['v_installments_due_date']); ?></td>
+                              <td><?php echo output($vehiclelists['v_installments_pending_date']); ?></td>
+                              <td><?php echo output($vehiclelists['v_installments_amount']); ?></td>
+                              <td><?php echo output($vehiclelists['v_chassis_no']); ?></td>
+                              <td><?php echo output($vehiclelists['v_group']); ?></td>
+                              <td><span class="badge <?php echo ($vehiclelists['v_is_active'] == '1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($vehiclelists['v_is_active'] == '1') ? 'Active' : 'Inactive'; ?></span>
+                              </td>
+                              <?php if (userpermission('lr_vech_list_view') || userpermission('lr_vech_list_edit') || userpermission('lr_vech_del')) { ?>
+                                 <td>
+                                    <?php if (userpermission('lr_vech_list_view')) { ?>
+                                       <a class="icon" href="<?php echo base_url(); ?>vehicle/viewvehicle/<?php echo output($vehiclelists['v_id']); ?>">
+                                          <i class="fa fa-eye"></i>
+                                       </a> |
+                                    <?php }
+                                    if (userpermission('lr_vech_list_edit')) { ?>
+                                       <a class="icon" href="<?php echo base_url(); ?>vehicle/editvehicle/<?php echo output($vehiclelists['v_id']); ?>">
+                                          <i class="fa fa-edit"></i>
+                                       </a>
+                                    <?php }
+                                    if (userpermission('lr_vech_del')) { ?> |
+                                       <a data-toggle="modal" href="" onclick="confirmation('<?php echo base_url(); ?>vehicle/deletevehicle','<?= output($vehiclelists['v_id']); ?>')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
+                                       </a>
+                                    <?php } ?>
+                                 </td>
+                              <?php } ?>
+                           </tr>
+                     <?php }
+                     } ?>
                   </tbody>
                </table>
             </div>

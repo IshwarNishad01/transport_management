@@ -3,7 +3,7 @@
 class Incomexpense_model extends CI_Model{
 	
 	public function add_incomexpense($data) { 
-		$data['ie_date'] = reformatDate($data['ie_date']);
+		// $data['ie_date'] = reformatDate($data['ie_date']);
 		return	$this->db->insert('incomeexpense',$data);
 	} 
 

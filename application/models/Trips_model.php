@@ -4,7 +4,7 @@ class Trips_model extends CI_Model
 
 	public function insert_trip($data)
 	{
-		return $this->db->insert('trips', $data); // 'trips' is the database table name
+		return $this->db->insert('trips', $data);
 	}
 
 	public function update_trip($tripId, $data)

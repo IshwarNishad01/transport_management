@@ -52,8 +52,9 @@
                         <tr>
                            <td> <?php echo output($count); $count++; ?></td>
                            <td> <?php echo ucfirst($triplists['t_customer_details']->c_name); ?></td>
-                           <td> <?php echo output($triplists['t_vechicle_details']->v_name); ?></td>
-                           <td><?php echo ucfirst(date(datetimeformat(), strtotime($triplists['t_start_date']))).'<br> to <br>'.ucfirst(date(datetimeformat(), strtotime($triplists['t_end_date']))); ?></td>
+                           <td> <?php echo output($triplists['t_vechicle']); ?></td>
+                           <td> <?php echo output($triplists['t_start_date']); ?></td>
+                           <!-- <td><?php echo ucfirst(date(datetimeformat(), strtotime($triplists['t_start_date']))).'<br> to <br>'.ucfirst(date(datetimeformat(), strtotime($triplists['t_end_date']))); ?></td> -->
 
                            <td><?php echo ucfirst($triplists['t_type']); ?></td>
                            <td><?= (isset($triplists['t_driver_details']->d_name))?$triplists['t_driver_details']->d_name:'<span class="badge badge-danger">Yet to Assign</span>'; ?></td>

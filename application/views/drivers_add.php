@@ -1,4 +1,4 @@
-    <div class="content-header">
+<div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -17,7 +17,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- <form method="post" id="add_driver" class="card" enctype="multipart/form-data" action="<?php echo base_url(); ?>drivers/<?php echo (isset($driverdetails)) ? 'updatedriver' : 'insertdriver'; ?>"> -->
+          
         <form method="post" id="add_driver" class="card" enctype="multipart/form-data"
           action="<?php echo base_url(); ?>drivers/<?php echo (isset($driverdetails)) ? 'updatedriver' : 'insertdriver'; ?>">
 
@@ -26,29 +26,32 @@
               <?php if (isset($driverdetails)) { ?>
                 <input type="hidden" name="d_id" id="d_id" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_id'] : '' ?>">
               <?php } ?>
+
               <div class="col-sm-6 col-md-3">
                 <label class="form-label">Driver Name<span class="form-required">*</span></label>
                 <div class="form-group">
                   <input type="text" name="d_name" id="d_name" class="form-control" placeholder="Driver Name" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_name'] : '' ?>">
                 </div>
               </div>
+
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Mobile<span class="form-required">*</span></label>
                   <input type="text" name="d_mobile" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_mobile'] : '' ?>" class="form-control" placeholder="Mobile">
                 </div>
               </div>
+              
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Adhar Number<span class="form-required">*</span></label>
-                  <input type="text" name="d_adhar_number" value="" class="form-control" placeholder="Adhar Number">
+                  <input type="text" name="d_adhar_number" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_adhar_number'] : '' ?>" class="form-control" placeholder="Adhar Number">
                 </div>
               </div>
 
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Alternate Contact<span class="form-required">*</span></label>
-                  <input type="text" name="d_contact" value="" class="form-control" placeholder="contact">
+                  <input type="text" name="d_contact" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_contact'] : '' ?>" class="form-control" placeholder="contact">
                 </div>
               </div>
               <div class="col-sm-6 col-md-3">
@@ -63,22 +66,25 @@
                   <input type="text" name="d_licenseno" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_licenseno'] : '' ?>" class="form-control" placeholder="License No">
                 </div>
               </div>
+
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">License Expiry Date<span class="form-required">*</span></label>
-                  <input type="date" name="d_license_expdate" value="<?php echo (isset($driverdetails)) ? date(dateformat(), strtotime($driverdetails[0]['d_license_expdate'])) : '' ?>" class="form-control" placeholder="License Expiry Date">
+                  <input type="date" name="d_license_expdate" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_license_expdate'] : '' ?>" class="form-control" placeholder="License Expiry Date">
                 </div>
               </div>
+
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Total Experiance<span class="form-required">*</span></label>
                   <input type="text" name="d_total_exp" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_total_exp'] : '' ?>" class="form-control" placeholder="Total Experiance">
                 </div>
               </div>
+
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Date of Joining<span class="form-required">*</span></label>
-                  <input type="date" name="d_doj" value="<?php echo (isset($driverdetails)) ? date(dateformat(), strtotime($driverdetails[0]['d_doj'])) : '' ?>" class="form-control" placeholder="Date of Joining">
+                  <input type="date" name="d_doj" value="<?php echo (isset($driverdetails)) ? $driverdetails[0]['d_doj'] : '' ?>" class="form-control" placeholder="Date of Joining">
                 </div>
               </div>
               <div class="col-sm-6 col-md-3">

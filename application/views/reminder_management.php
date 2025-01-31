@@ -43,7 +43,8 @@
                         <tr>
                            <td> <?php echo output($count); $count++; ?></td>
                            <td> <?php echo output($reminderlists['v_name']); ?></td>
-                           <td> <?php echo output(date(dateformat(), strtotime($reminderlists['r_date']))); ?></td>
+                           <td> <?php echo output($reminderlists['r_date']); ?></td>
+                           <!-- <td> </?php echo output(date(dateformat(), strtotime($reminderlists['r_date']))); ?></td> -->
                            <td><?php echo output($reminderlists['r_message']); ?></td>
                             <?php if(userpermission('lr_reminder_delete')) { ?>
                            <td>
