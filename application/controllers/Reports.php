@@ -56,6 +56,22 @@ class Reports extends CI_Controller {
 		$data['vehiclelist'] = $this->vehicle_model->getall_vehicle();
 		$this->template->template_render('report_fuel',$data);
 	}
+
+	public function vehicles()	{
+		if(isset($_POST['vehicle_report'])) {
+			$fuelreport = $this->fuel_model->fuel_reports($this->input->post('fuel_vechicle'));
+			if(empty($fuelreport)) {
+				$this->session->set_flashdata('warningmessage', 'No data found..');
+				$data['vehicle'] = '';
+			} else {
+				unset($_SESSION['warningmessage']);
+				$data['vehicle'] = $fuelreport;
+			}
+		}
+		$data['vehiclelist'] = $this->vehicle_model->getall_vehicle();
+		$this->template->template_render('report_vehicles',$data);
+	}
+
 	public function driversreport()	{
 		$data['dlist'] = $this->drivers_model->getall_drivers();
 		if(isset($_POST['driverreport'])) {

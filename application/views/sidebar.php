@@ -287,6 +287,93 @@
                </ul>
             </li>
 
+        
+            <li class="nav-item has-treeview <?php echo ((activate_menu('salary'))=='active') ? 'menu-open':'' ?>
+               <?php echo ((activate_menu('addsalary'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('editsalary'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('salary');?> <?php echo activate_menu('editsalary');?> <?php echo activate_menu('addsalary');?>">
+                  <i class="nav-icon fa fa-dollar-sign"></i>
+                  <p>
+                     Employee Salary
+                     <i class="right fas fa-angle-left"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                 <?php  if(userpermission('lr_ie_list')) { ?>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>salary" class="nav-link <?php echo activate_menu('editsalary');?> <?php echo activate_menu('editsalary');?>">
+                        <i class="nav-icon fas faa-list"></i>
+                        <p>Salary List</p>
+                     </a>
+                  </li>
+                   <?php } if(userpermission('lr_ie_add')) { ?>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>salary/addsalary" class="nav-link <?php echo activate_menu('addsalary');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Add Salary</p>
+                     </a>
+                  </li>
+                  <?php } ?>
+               </ul>
+            </li>
+
+            <li class="nav-item has-treeview <?php echo ((activate_menu('trip_details'))=='active') ? 'menu-open':'' ?>
+               <?php echo ((activate_menu('showtripdetails'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addtripdetails'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('salary');?> <?php echo activate_menu('addtripdetails');?> <?php echo activate_menu('showtripdetails');?>">
+                  <i class="nav-icon fa fa-dollar-sign"></i>
+                  <p>
+                     Truck Trip Details
+                     <i class="right fas fa-angle-left"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                 <?php  if(userpermission('lr_ie_list')) { ?>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>Tripdetails/showtripdetails" class="nav-link <?php echo activate_menu('showtripdetails');?> <?php echo activate_menu('showtripdetails');?>">
+                        <i class="nav-icon fas faa-list"></i>
+                        <p>Trip Details List</p>
+                     </a>
+                  </li>
+                   <?php } if(userpermission('lr_ie_add')) { ?>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>Tripdetails/addtripdetails" class="nav-link <?php echo activate_menu('addtripdetails');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Add Trip Details</p>
+                     </a>
+                  </li>
+                  <?php } ?>
+               </ul>
+            </li>
+
+
+            <li class="nav-item has-treeview <?php echo ((activate_menu('employee_advance'))=='active') ? 'menu-open':'' ?>
+               <?php echo ((activate_menu('all_records'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('add_record'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('employee_advance');?> <?php echo activate_menu('add_record');?> <?php echo activate_menu('all_records');?>">
+                  <i class="nav-icon fa fa-dollar-sign"></i>
+                  <p>
+                     Employee Advance
+                     <i class="right fas fa-angle-left"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                 <?php  if(userpermission('lr_ie_list')) { ?>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>Employee/add_record" class="nav-link <?php echo activate_menu('add_record');?> <?php echo activate_menu('add_record');?>">
+                        <i class="nav-icon fas faa-list"></i>
+                        <p>Add Record</p>
+                     </a>
+                  </li>
+                   <?php } if(userpermission('lr_ie_add')) { ?>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>Employee/all_records" class="nav-link <?php echo activate_menu('all_records');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>All Records List</p>
+                     </a>
+                  </li>
+                  <?php } ?>
+               </ul>
+            </li>
+
+
             <!-- <?php }  if(userpermission('lr_tracking') || userpermission('lr_liveloc')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('tracking'))=='active') ? 'menu-open':'' ?>
                <?php echo ((activate_menu('livestatus'))=='active') ? 'menu-open':'' ?>">
@@ -379,6 +466,14 @@
                         <p>Fuel</p>
                      </a>
                   </li>
+
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>reports/vehicles" class="nav-link <?php echo activate_menu('vehicles');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Vehicles</p>
+                     </a>
+                  </li>
+
                   <li class="nav-item">
                      <a href="<?= base_url(); ?>reports/driversreport" class="nav-link <?php echo activate_menu('driversreport');?>">
                         <i class="nav-icon fas faa-plus"></i>
