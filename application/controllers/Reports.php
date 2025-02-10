@@ -103,4 +103,98 @@ class Reports extends CI_Controller {
 		$data['vehiclelist'] = $this->vehicle_model->getall_vehicle();
 		$this->template->template_render('report_drivers',$data);
 	}
+
+
+	public function employeesalaryreport(){
+
+		if(isset($_POST['employeesalary_report'])) {
+			// $d_id = $_POST['d_id'];
+		
+				$where = array('date >='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['from']))),'date<='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['to']))));
+	
+
+			$driverrep = $this->db->select('*')->from('salary')->where($where)->order_by('id','desc')->get()->result_array();
+			
+			if(empty($driverrep)) {
+				$this->session->set_flashdata('warningmessage', 'No data found..');
+				$data['salary'] = '';
+			} else {
+				unset($_SESSION['warningmessage']);
+
+				if(!empty($driverrep)) {
+		
+			$data['salary'] = $driverrep;
+			}
+		}
+		}
+		$this->template->template_render('report_employeesalary',$data);
+	}
+
+	public function trucktripreport(){
+
+		
+		if(isset($_POST['submit'])) {
+
+			$vehicle = $this->input->post('vechicle');
+
+			if($vehicle == 'all'){
+			
+				$where = array('date >='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['from']))),'date<='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['to']))));
+				
+			}else{
+				$where = array('date >='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['from']))),'date<='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['to']))),'vehicle_no'=>$this->input->post('vechicle'));
+				
+			}
+
+			$driverrep = $this->db->select('*')->from('truck_trip_details')->where($where)->order_by('id','desc')->get()->result_array();
+			
+			if(empty($driverrep)) {
+				$this->session->set_flashdata('warningmessage', 'No data found..');
+				$data['salary'] = '';
+			} else {
+				unset($_SESSION['warningmessage']);
+
+				if(!empty($driverrep)) {
+		
+			$data['trips'] = $driverrep;
+			}
+		}
+		}
+		$data['vehiclelist'] = $this->vehicle_model->getall_vehicle();
+		$this->template->template_render('report_trucktrip',$data);
+	}
+
+	public function employeeadvancereport(){
+		
+		if(isset($_POST['submit'])) {
+			// $d_id = $_POST['d_id'];
+		
+			$vehicle = $this->input->post('vechicle');
+
+if($vehicle == 'all'){
+
+	$where = array('date >='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['from']))),'date<='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['to']))));
+	
+}else{
+	$where = array('date >='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['from']))),'date<='=>date("Y-m-d", strtotime(str_replace('/', '-', $_POST['to']))),'vehicle'=>$this->input->post('vechicle'));
+	
+}
+			$driverrep = $this->db->select('*')->from('employee_advance')->where($where)->order_by('id','desc')->get()->result_array();
+			
+			if(empty($driverrep)) {
+				$this->session->set_flashdata('warningmessage', 'No data found..');
+				$data['salary'] = '';
+			} else {
+				unset($_SESSION['warningmessage']);
+
+				if(!empty($driverrep)) {
+		
+			$data['employees'] = $driverrep;
+			}
+		}
+		}
+		$data['vehiclelist'] = $this->vehicle_model->getall_vehicle();
+		$this->template->template_render('report_employeeadvance',$data);
+	}
+
 }

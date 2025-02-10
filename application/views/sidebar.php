@@ -439,7 +439,7 @@
             </li> -->
 
           <?php }  if(userpermission('lr_reports')) { ?>
-            <li class="nav-item has-treeview <?php echo ((activate_menu('driversreport'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('incomeexpense'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('booking'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('fuels'))=='active') ? 'menu-open':'' ?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('driversreport'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('incomeexpense'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('booking'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('fuels'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('employeesalaryreport'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('trucktripreport'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('employeeadvancereport'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('booking');?><?php echo activate_menu('fuels');?><?php echo activate_menu('driversreport');?><?php echo activate_menu('incomeexpense');?>">
                   <i class="nav-icon fa fa-calculator" aria-hidden="true"></i>
                   <p>
@@ -467,17 +467,38 @@
                      </a>
                   </li>
 
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a href="<?= base_url(); ?>reports/vehicles" class="nav-link <?php echo activate_menu('vehicles');?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>Vehicles</p>
                      </a>
-                  </li>
+                  </li> -->
 
                   <li class="nav-item">
                      <a href="<?= base_url(); ?>reports/driversreport" class="nav-link <?php echo activate_menu('driversreport');?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>Driver</p>
+                     </a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>reports/employeesalaryreport" class="nav-link <?php echo activate_menu('employeesalaryreport');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Employee Salary</p>
+                     </a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>reports/trucktripreport" class="nav-link <?php echo activate_menu('trucktripreport');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Truck Trip</p>
+                     </a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>reports/employeeadvancereport" class="nav-link <?php echo activate_menu('employeeadvancereport');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Employee Advance</p>
                      </a>
                   </li>
                </ul>

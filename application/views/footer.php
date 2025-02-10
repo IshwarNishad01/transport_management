@@ -43,7 +43,7 @@
         } } ?>
 </script>
 <?php 
-   if($seg=='booking' || $seg=='incomeexpense' || $seg=='fuels' || $seg=='partsinventory' || $seg=='driversreport') {
+   if($seg=='booking' || $seg=='incomeexpense' || $seg=='fuels' || $seg=='partsinventory' || $seg=='driversreport' || $seg=='employeesalaryreport' || $seg=='employeeadvancereport' ||$seg=='trucktripreport' ) {
    ?>
 <script src="<?= base_url(); ?>assets/plugins/datatables/dataTables.buttons.min.js"></script>
 <script src="<?= base_url(); ?>assets/plugins/datatables/jszip.min.js"></script>
