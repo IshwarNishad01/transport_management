@@ -46,9 +46,9 @@
                            foreach($tripdetails as $tripData){
                            ?>
                         <tr>
-                           <td> <?php echo output($count); $count++; ?></td>
+                           <!-- <td> <?php echo output($count); $count++; ?></td> -->
 
-                           <!-- <td><?php echo output($tripData['serial_no']); ?></td> -->
+                           <td><?php echo output($tripData['serial_no']); ?></td>
                            <td><?php echo output($tripData['customer_name']); ?></td>
                            <td><?php echo output($tripData['date']); ?></td>
                            <td><?php echo output($tripData['vehicle_no']); ?></td>

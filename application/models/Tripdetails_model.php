@@ -3,7 +3,16 @@
 class Tripdetails_model extends CI_Model{
 	
 	public function add($data) { 
-		// $data['ie_date'] = reformatDate($data['ie_date']);
+		$last_serial = $this->db->select('serial_no')
+		->from('truck_trip_details')
+		->order_by('serial_no', 'DESC')
+		->limit(1)
+		->get()
+		->row_array();
+
+// Assign the next serial number
+$data['serial_no'] = isset($last_serial['serial_no']) ? $last_serial['serial_no'] + 1 : 1;
+
 		return	$this->db->insert('truck_trip_details',$data);
 	} 
 

@@ -30,7 +30,7 @@
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">Serial No</label>
-                  <input type="text" readonly class="form-control" id="serial_no" name="serial_no" value="<?php echo (isset($tripDetails)) ? $tripDetails[0]['id'] : '' ?>" placeholder="Serial No">
+                  <input type="text" readonly class="form-control" id="serial_no" name="serial_no" value="<?php echo (isset($tripDetails)) ? $tripDetails[0]['serial_no'] : '' ?>" placeholder="Serial No">
 
                 </div>
               </div>
